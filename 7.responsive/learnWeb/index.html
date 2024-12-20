@@ -159,41 +159,9 @@
       </section>
 
       <section class="card">
-        <h2>Timeline</h2>
-        <div class="toolbar">
-          <div class="dropdown">
-            <button class="dropdown-btn">
-              Next 7 days <i class="fa fa-chevron-down"></i>
-            </button>
-            <div class="dropdown-menus">
-              <a href="#">All</a>
-              <a href="#">Overdue</a>
-              <hr class="thin-line" />
-              <p class="due-date">Due date</p>
-              <a href="#">Next 7 days</a>
-              <a href="#">Next 30 days</a>
-              <a href="#">Next 3 months</a>
-              <a href="#">Next 6 months</a>
-            </div>
-          </div>
-
-          <div class="dropdown">
-            <button class="dropdown-btn">
-              Sort by dates <i class="fa fa-chevron-down"></i>
-            </button>
-            <div class="dropdown-menus">
-              <a href="#">Sort by dates</a>
-              <a href="#">Sort by course</a>
-            </div>
-          </div>
-
-          <input type="text" placeholder="Search by activity type or name" />
-        </div>
-        <hr class="thin-line" />
-        <div class="file-icon">
-          <i class="fa fa-file"></i>
-          <p>No activities require action</p>
-        </div>
+        <h2>Calender</h2>
+        <div id="calendar"></div>
+        <!-- This is where the calendar will be rendered -->
       </section>
 
       <!-- Repeat other sections (Card 2, Card 3) as needed -->
@@ -265,6 +233,56 @@
           });
         });
       });
+
+      function createCalendar() {
+        const calendarContainer = document.getElementById("calendar");
+        const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        const currentDate = new Date();
+        const currentMonth = currentDate.getMonth(); // Current month (0-11)
+        const currentYear = currentDate.getFullYear(); // Current year
+
+        const firstDayOfMonth = new Date(currentYear, currentMonth, 1); // Get the first day of the month
+        const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0); // Get the last day of the month
+
+        const totalDaysInMonth = lastDayOfMonth.getDate(); // Number of days in current month
+        const firstDayOfWeek = firstDayOfMonth.getDay(); // Day of the week the first day falls on
+
+        // Clear the calendar container
+        calendarContainer.innerHTML = "";
+
+        // Add the days of the week header
+        daysOfWeek.forEach((day) => {
+          const dayHeader = document.createElement("div");
+          dayHeader.classList.add("day-header");
+          dayHeader.textContent = day;
+          calendarContainer.appendChild(dayHeader);
+        });
+
+        // Add empty divs for the days before the start of the month
+        for (let i = 0; i < firstDayOfWeek; i++) {
+          const emptyDiv = document.createElement("div");
+          emptyDiv.classList.add("empty");
+          calendarContainer.appendChild(emptyDiv);
+        }
+
+        // Add the days of the month
+        for (let i = 1; i <= totalDaysInMonth; i++) {
+          const dayElement = document.createElement("div");
+          dayElement.classList.add("day");
+          dayElement.textContent = i;
+
+          // Highlight today
+          if (i === currentDate.getDate()) {
+            dayElement.classList.add("current-day");
+          }
+
+          calendarContainer.appendChild(dayElement);
+        }
+      }
+
+      // Run the createCalendar function on page load
+      createCalendar();
     </script>
   </body>
 </html>

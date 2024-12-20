@@ -484,3 +484,52 @@ hr.thin-line {
 .cards-description h3, .cards-description p {
   margin: 5px 0;
 }
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  /* 7 columns for each day of the week */
+  grid-gap: 5px;
+  font-family: Arial, sans-serif;
+}
+
+#calendar .day-header {
+  background-color: #3faffa;
+  /* Header for days of the week */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+#calendar .day {
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#calendar .day:hover {
+  background-color: #e1e1e1;
+  /* Slightly darker on hover */
+}
+
+#calendar .current-day {
+  background-color: #ff6347;
+  /* Highlight today's date */
+  color: white;
+  font-weight: bold;
+}
+
+#calendar .empty {
+  background-color: #fff;
+  /* Empty space in the grid for days not in the current month */
+  border: none;
+}
