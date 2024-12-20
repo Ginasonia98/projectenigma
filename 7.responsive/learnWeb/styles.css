@@ -625,3 +625,49 @@ hr.thin-line {
   background-color: #0056b3;
   /* Darker blue */
 }
+
+@media (max-width: 768px) {
+  .header-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cards {
+    flex-direction: column;
+  }
+
+  .card-item {
+    min-height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  #calendar {
+    grid-template-columns: repeat(7, 1fr);
+    /* Maintain 7 columns but adjust for very small screens */
+    grid-gap: 2px;
+    /* Even smaller gap */
+  }
+
+  #calendar .day-header {
+    font-size: 12px;
+    /* Even smaller header for very small screens */
+    padding: 6px 0;
+  }
+
+  #calendar .day {
+    font-size: 10px;
+    /* Smaller day text for very small screens */
+    padding: 6px 0;
+  }
+
+  #current-month {
+    font-size: 18px;
+    /* Adjust the month title for smaller screens */
+  }
+
+  .arrow-button {
+    font-size: 18px;
+    /* Adjust the arrows for small screens */
+  }
+}
