@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header-nav">
+      <div>
+        <img
+          src="https://lms.enigmacamp.com/pluginfile.php/1/core_admin/logocompact/300x300/1733286021/enigma-compact.png"
+          alt="enigma icon"
+          class="image-enigma"
+        />
+        <a href="https://lms.enigmacamp.com/?redirect=0">Home</a>
+        <a href="https://lms.enigmacamp.com/my/">Dashboard</a>
+        <a href="https://lms.enigmacamp.com/my/courses.php">My Courses</a>
+      </div>
+      <div class="icon-container">
+        <i class="fa fa-bell"></i>
+        <i class="fa fa-comment-alt"></i>
+        <div class="dropdown-container">
+          <i class="fa fa-user-circle" onclick="toggleDropdown()"></i>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <div class="dropdown-header">
+              <i class="fa fa-times close-icon" onclick="closeDropdown()"></i>
+            </div>
+            <a href="https://lms.enigmacamp.com/user/profile.php">Profile</a>
+            <a href="https://lms.enigmacamp.com/grade/report/overview/index.php"
+              >Grades</a
+            >
+            <a href="https://lms.enigmacamp.com/calendar/view.php?view=month"
+              >Calendar</a
+            >
+            <a href="https://lms.enigmacamp.com/reportbuilder/index.php"
+              >Reports</a
+            >
+            <a href="https://lms.enigmacamp.com/user/preferences.php"
+              >Preferences</a
+            >
+            <a href="https://www.google.com/">Logout</a>
+          </div>
+        </div>
+
+        <p class="edit-teks">Edit Mode</p>
+        <div class="switch" onclick="toggleSwitch(this)">
+          <div class="switch-circle"></div>
+        </div>
+      </div>
+    </header>
+
+    <hr />
+
+    <div class="card-container">
+      <h2 class="dashboard-title">Dashboard</h2>
+      <div class="card">
+        <h3>Timeline</h3>
+        <div class="button-container">
+          <div class="right-buttons">
+            <button
+              class="dropdown-btn"
+              onclick="toggleDropdownMenu('dropdown1')"
+            >
+              Dropdown 1 <i class="fa fa-chevron-down"></i>
+            </button>
+            <div id="dropdown1" class="dropdown-menu">
+              <a href="#">Submenu 1</a>
+              <a href="#">Submenu 2</a>
+              <a href="#">Submenu 3</a>
+              <a href="#">Submenu 4</a>
+              <a href="#">Submenu 5</a>
+              <a href="#" onclick="closeDropdownMenu('dropdown1')">Close</a>
+            </div>
+
+            <button
+              class="dropdown-btn"
+              onclick="toggleDropdownMenu('dropdown2')"
+            >
+              Dropdown 2 <i class="fa fa-chevron-down"></i>
+            </button>
+            <div id="dropdown2" class="dropdown-menu">
+              <a href="#">Submenu 1</a>
+              <a href="#">Submenu 2</a>
+              <a href="#" onclick="closeDropdownMenu('dropdown2')">Close</a>
+            </div>
+          </div>
+
+          <div class="right-input">
+            <input type="text" placeholder="Search by activity type or name" />
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="file-icon">
+          <i class="fa fa-file"></i>
+          <p>No activities require action</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Card 2</h3>
+        <p>This is the content of Card 2.</p>
+      </div>
+
+      <div class="card">
+        <h3>Card 3</h3>
+        <p>This is the content of Card 3.</p>
+      </div>
+    </div>
+
+    <script>
+      function toggleSwitch(element) {
+        element.classList.toggle("on");
+      }
+
+      function toggleDropdown() {
+        const dropdown = document.getElementById("dropdownMenu");
+        dropdown.style.display =
+          dropdown.style.display === "flex" ? "none" : "flex";
+      }
+
+      function closeDropdown() {
+        const dropdown = document.getElementById("dropdownMenu");
+        dropdown.style.display = "none";
+      }
+
+      function toggleDropdownMenu(dropdownId) {
+        const dropdown = document.getElementById(dropdownId);
+        const isVisible = dropdown.classList.contains("show");
+
+        document
+          .querySelectorAll(".dropdown-menu")
+          .forEach((menu) => menu.classList.remove("show"));
+
+        if (!isVisible) {
+          dropdown.classList.add("show");
+        }
+      }
+
+      function closeDropdownMenu(dropdownId) {
+        const dropdown = document.getElementById(dropdownId);
+        dropdown.classList.remove("show");
+      }
+    </script>
+  </body>
+</html>

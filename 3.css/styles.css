@@ -1,0 +1,7 @@
+/* jika ingin menambahkan css sekaligus pada 2 selector */
+h1,h2 {
+  color: red;
+  background-color: black;
+  font-family: sans-serif;
+  padding: 30px;
+}

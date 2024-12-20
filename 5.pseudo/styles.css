@@ -1,0 +1,99 @@
+/* Styling untuk elemen <h1> */
+h1 {
+  color: red;
+}
+
+/* Styling ketika hover pada elemen <h1> */
+h1:hover {
+  background-color: black;
+}
+
+/* Styling untuk elemen <button> */
+button {
+  background-color: orangered;
+  color: white;
+  border: 0;
+  padding: 4px 16px;
+  border-radius: 2px;
+}
+
+/* Styling ketika hover pada <button> */
+button:hover {
+  cursor: pointer;
+  background-color: rgb(170, 46, 1);
+}
+
+/* Styling ketika tombol <button> ditekan (active) */
+button:active {
+  background-color: rgb(115, 31, 0);
+}
+
+/* Styling ketika tombol <button> dalam keadaan disabled */
+button:disabled {
+  background-color: black;
+  cursor: not-allowed;
+}
+
+/* Styling untuk link yang sudah dikunjungi */
+a:visited {
+  color: green;
+}
+
+/* Styling ketika mouse hover pada link */
+a:hover {
+  color: hotpink;
+  font-size: 22px;
+}
+
+/* Styling ketika link dalam keadaan aktif */
+a:active {
+  color: blue;
+}
+
+/* Styling untuk <div> */
+div {
+  background-color: green;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  /* Menambahkan margin atas agar tidak menempel ke elemen sebelumnya */
+}
+
+div:hover {
+  background-color: blue;
+}
+
+/* Styling untuk elemen <p> yang tersembunyi */
+p {
+  display: none;
+  /* Pastikan elemen <p> ditampilkan */
+  background-color: yellow;
+  padding: 20px;
+}
+
+/* Menampilkan <p> ketika mouse hover pada <div> */
+div:hover p {
+  display: block;
+}
+
+/* Styling untuk elemen <i> di dalam <p> */
+p i {
+  color: blue;
+  /* Menambahkan warna biru pada semua elemen <i> */
+}
+
+/* Penerapan gaya pada elemen <h6> pertama di dalam kontainer */
+h6:first-child {
+  color: blue;
+}
+
+/* Memberikan warna biru pada elemen <i> pertama di dalam <h4> */
+h4 i:first-of-type {
+  color: blue;
+}
+
+/* Styling untuk semua elemen <i> di dalam <h4> untuk tetap italic */
+h4 i {
+  font-style: italic;
+  /* Pastikan <i> tetap italic */
+}

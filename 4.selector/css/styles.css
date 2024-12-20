@@ -1,0 +1,19 @@
+/* type selector */
+h1 {
+  color: red;
+  background-color: black;
+  font-family: sans-serif;
+}
+
+/* class selector */
+.text-blue {
+  color: blue;
+}
+
+.font-sans {
+  font-family: sans-serif;
+}
+
+#greeting{
+  color:coral;
+}

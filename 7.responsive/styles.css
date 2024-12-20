@@ -1,0 +1,42 @@
+.nav-link-container {
+  display: flex;
+  flex-direction: row;
+  font-size: larger;
+  gap: 8px;
+  display: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightgray;
+  padding: 8px;
+}
+
+.menu-button {
+  background-color: orangered;
+  color: white;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 4px;
+}
+
+.menu-button:hover {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+
+  /* kalau screen min 768px maka akan menampilkan rule dibawah */
+  /* header{
+    background-color: lightcoral;
+  } */
+  .nav-link-container {
+    display: inline-block;
+  }
+
+  .menu-button {
+    display: none;
+  }
+}

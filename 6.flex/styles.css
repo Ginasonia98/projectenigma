@@ -1,0 +1,102 @@
+.box {
+  width: 100px;
+  height: 100px;
+  /* set children agar memiliki masing-masing rasio 1 */
+  /* flex: 1; */
+  background-color: coral;
+  border: 1px solid black;
+}
+
+.container {
+  background-color: teal;
+  /* agar menjadi flex container */
+  /* flex memiliki 2 direction 
+  sering disebut row atau column */
+  display: flex;
+  flex-direction: row;
+  height: 500px;
+  /* agar content berada di kiri, kanan, dan tengah */
+  /* justify-content: center; */
+  /* align-items: center; */
+  flex-wrap: wrap;
+}
+
+/* flex direction row */
+/* .flex-container {
+  display: flex;
+  flex-direction: row;
+  background-color: DodgerBlue;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+} */
+
+/* row reverse */
+
+/* .flex-container {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: DodgerBlue;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+} */
+
+/* flex wrap&nonwrap */
+/* .flex-container {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  background-color: DodgerBlue;
+}
+
+.flex-container>div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+} */
+
+/* flex responsive */
+* {
+  box-sizing: border-box;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 30px;
+  text-align: center;
+}
+
+.flex-item-left {
+  background-color: #f1f1f1;
+  padding: 10px;
+  flex: 50%;
+}
+
+.flex-item-right {
+  background-color: dodgerblue;
+  padding: 10px;
+  flex: 50%;
+}
+
+/* Responsive layout - makes a one column-layout instead of a two-column layout */
+@media (max-width: 800px) {
+  .flex-item-right, .flex-item-left {
+    flex: 100%;
+  }
+}

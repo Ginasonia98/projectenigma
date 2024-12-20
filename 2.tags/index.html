@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- tag style -->
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <!-- element -->
+    <button disabled>Click me</button>
+    <input type="text" placeholder="input your name" />
+    <!-- tag a -->
+    <a href="https://lms.enigmacamp.com/mod/page/view.php?id=1260"
+      >Visit Enigma</a
+    >
+    <!--tag <abbr>  -->
+    The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.
+    <h1>Address</h1>
+    <!-- tag address -->
+    <address>
+      Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br />
+      Visit us at:<br />
+      Example.com<br />
+      Box 564, Disneyland<br />
+      USA
+    </address>
+    <!-- tag br -->
+    <p>
+      To force<br />
+      line breaks<br />
+      in a text,<br />
+      use the br<br />
+      element.
+    </p>
+    <br />
+    <!-- tag caption -->
+    <table>
+      <caption>
+        Monthly savings
+      </caption>
+      <tr>
+        <th>Month</th>
+        <th>Savings</th>
+      </tr>
+      <tr>
+        <td>January</td>
+        <td>$100</td>
+      </tr>
+    </table>
+    <!-- tag cite -->
+    <p><cite>The Scream</cite> by Edward Munch. Painted in 1893.</p>
+    <table>
+      <colgroup>
+        <col span="2" style="background-color: red" />
+        <col style="background-color: yellow" />
+      </colgroup>
+      <!-- row -->
+      <tr>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Price</th>
+      </tr>
+      <!-- tag colgroup -->
+      <tr>
+        <!-- column -->
+        <td>3476896</td>
+        <td>My first HTML</td>
+        <td>$53</td>
+      </tr>
+    </table>
+    <!-- tag datalist -->
+    <label for="browser">Choose your browser from the list:</label>
+    <input list="browsers" name="browser" id="browser" />
+
+    <datalist id="browsers">
+      <option value="Opera"></option>
+      <option value="Firefox"></option>
+      <option value="Chrome"></option>
+      <option value="Opera"></option>
+      <option value="Safari"></option>
+    </datalist>
+    <dialog open>This is an open dialog window</dialog>
+    <!-- tag div -->
+    <div class="myDiv">
+      <h2>This is a heading in a div element</h2>
+      <p>This is some text in a div element.</p>
+    </div>
+    <!-- tag embed -->
+    <embed
+      type="image/jpg"
+      src="data:image/jpeg;base64,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"
+      width="300"
+      height="200"
+    />
+    <embed
+      type="video/webm"
+      src="https://www.youtube.com/watch?v=GEafvihILKQ&list=RDGEafvihILKQ&start_radio=1"
+      width="400"
+      height="300"
+    />
+    <!-- tag footer -->
+    <footer>
+      <p>Author: Hege Refsnes</p>
+      <p><a href="mailto:hege@example.com">hege@example.com</a></p>
+    </footer>
+    <!-- tag form -->
+    Form
+    <form action="/action_page.php" method="get">
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname" /><br /><br />
+      <label for="lname">Last name:</label>
+      <input type="text" id="lname" name="lname" /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+    <h1>The Main Languages of the Web</h1>
+
+    <p>
+      HTML is the standard markup language for creating Web pages. HTML
+      describes the structure of a Web page, and consists of a series of
+      elements. HTML elements tell the browser how to display the content.
+    </p>
+
+    <hr />
+
+    <p>
+      CSS is a language that describes how HTML elements are to be displayed on
+      screen, paper, or in other media. CSS saves a lot of work, because it can
+      control the layout of multiple web pages all at once.
+    </p>
+
+    <hr />
+    <!-- tag i -->
+    <p>
+      JavaScript is the programming language of HTML and the Web. JavaScript can
+      change HTML content and attribute values. JavaScript can change CSS.
+      JavaScript can hide and show HTML elements, and more.
+    </p>
+    <p><i>Lorem ipsum</i> is the most popular filler text in history.</p>
+
+    <p>
+      The <i>RMS Titanic</i>, a luxury steamship, sank on April 15, 1912 after
+      striking an iceberg.
+    </p>
+    <!-- tag iframe -->
+    <iframe
+      src="https://www.w3schools.com"
+      title="W3Schools Free Online Web Tutorials"
+    ></iframe>
+    <br />
+    <!-- tag image -->
+    <img
+      src="https://pics.craiyon.com/2023-11-01/c368eca22a0745ecbe517cbe55a4c416.webp"
+      alt="Girl in the rain"
+      width="500"
+      height="600"
+    />
+    <!-- tag li -->
+    <ol>
+      <li>Coffee</li>
+      <li>Tea</li>
+      <li>Milk</li>
+    </ol>
+
+    <ul>
+      <li>Coffee</li>
+      <li>Tea</li>
+      <li>Milk</li>
+    </ul>
+
+    <!-- tag ol -->
+    <ol>
+      <li>Coffee</li>
+      <li>Tea</li>
+      <li>Milk</li>
+    </ol>
+
+    <ol start="10">
+      <li>Coffee</li>
+      <li>Tea</li>
+      <li>Milk</li>
+    </ol>
+
+    <!-- tag option -->
+    <label for="cars">Choose a car:</label>
+
+    <select id="cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="opel">Opel</option>
+      <option value="audi">Audi</option>
+    </select>
+    <!-- tag progress -->
+    <label for="file">Downloading progress:</label>
+    <progress id="file" value="50" max="100">32%</progress>
+    <!-- tag q -->
+    <p>
+      WWF's goal is to:
+      <q>Build a future where people live in harmony with nature.</q>
+      We hope they succeed.
+    </p>
+    <!-- tag section -->
+    <section>
+      <h2>WWF History</h2>
+      <p>
+        The World Wide Fund for Nature (WWF) is an international organization
+        working on issues regarding the conservation, research and restoration
+        of the environment, formerly named the World Wildlife Fund. WWF was
+        founded in 1961.
+      </p>
+    </section>
+
+    <section>
+      <h2>WWF's Symbol</h2>
+      <p>
+        The Panda has become the symbol of WWF. The well-known panda logo of WWF
+        originated from a panda named Chi Chi that was transferred from the
+        Beijing Zoo to the London Zoo in the same year of the establishment of
+        WWF.
+      </p>
+    </section>
+    <!-- tag select -->
+    <label for="cars">Choose a car:</label>
+
+    <select name="cars" id="cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+    <!-- tag span -->
+    <p>My mother has <span style="color: blue">blue</span> eyes.</p>
+    <!-- tag strong -->
+    <strong>This text is important!</strong>
+    <!-- tag table -->
+    <table>
+      <tr>
+        <th>Month</th>
+        <th>Savings</th>
+      </tr>
+      <tr>
+        <td>January</td>
+        <td>$100</td>
+      </tr>
+      <tr>
+        <td>February</td>
+        <td>$80</td>
+      </tr>
+    </table>
+  </body>
+</html>
