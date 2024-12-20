@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f9;
+  background-color: white;
   color: #333;
 }
 
@@ -85,7 +85,6 @@ nav a {
 
 /* Make links stack vertically */
 /* Dropdown menu styling */
-/* Dropdown menu styling */
 .dropdown-menu {
   display: none;
   /* Initially hidden */
@@ -145,6 +144,7 @@ nav a {
   /* Space it from the right */
   border: none;
 }
+
 /* Chevron down icon styling */
 .fa-chevron-down {
   cursor: pointer;
@@ -188,44 +188,198 @@ nav a {
 }
 
 /* Styles for the main content */
+/* Main container styling */
+/* Main container styling */
 .main-container {
   padding: 20px;
+  margin-top: 30px;
+  /* Adds some space from the top of the page */
 }
 
-h1 {
-  text-align: center;
+/* Styling for Dashboard heading */
+.dashboard-title {
+  font-size: 30px;
+  /* Larger font size for the title */
+  font-weight: bold;
+  /* Make the title bold */
+  color: #333;
+  /* Set text color */
   margin-bottom: 20px;
+  /* Adds space between title and first card */
+  text-align: left;
+  /* Align title to the left */
+  margin-left: 330px;
+  /* Align the title with the left side, same as the card */
 }
 
+
+/* Card section styling */
 .card {
   background: white;
   border-radius: 8px;
   padding: 20px;
   margin: 20px auto;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgb(146, 146, 146);
   max-width: 800px;
 }
 
-.card h2 {
+/* Styling for Timeline title (inside card) */
+.timeline-title {
   margin-bottom: 10px;
+  text-align: left;
+  /* Ensure the Timeline title is aligned left */
 }
 
+/* Card content styling */
+
+/* Styling for the toolbar and buttons */
+/* Styling for individual buttons */
+.toolbar button {
+  background-color: white;
+  color: gray;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for buttons */
+.toolbar button:hover {
+  background-color: gray;
+  color: white;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  background-color: white;
+  color: rgb(44, 44, 44);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-menus {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  /* Menempatkan submenu di bawah tombol */
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  /* Untuk memastikan menu berada di atas elemen lain */
+}
+
+.dropdown-menus a {
+  color: gray;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menus a:hover {
+  background-color: rgb(8, 8, 254);
+  color: white;
+}
+
+/* Tampilkan menu ketika tombol aktif */
+.dropdown.active .dropdown-menus {
+  display: block;
+}
+
+
+.thin-line {
+  border: none;
+  /* Hilangkan border default */
+  border-top: 1px solid lightgray;
+  /* Garis abu-abu tipis */
+  margin: 10px 0;
+  /* Spasi di atas dan bawah garis */
+}
+
+.due-date {
+  margin-left: 15px;
+  /* Hilangkan margin default */
+  padding: 5px 0;
+  /* Sesuaikan dengan padding dari elemen link */
+  color: gray;
+  /* Warna teks */
+  display: inline-block;
+  /* Tampilkan sebagai blok sejajar */
+}
+
+/* Styling untuk input text */
+.toolbar input[type="text"] {
+  width: 200px;
+  /* Menentukan lebar input */
+  height: 30px;
+  /* Menentukan tinggi input */
+  padding: 5px;
+  /* Menambahkan padding */
+  border: 1px solid #ddd;
+  /* Border halus */
+  border-radius: 10px;
+  /* Sudut membulat */
+  font-size: 14px;
+  /* Ukuran font */
+  margin-left: auto;
+  /* Memastikan input berada di sebelah kanan */
+  margin-right: 10px;
+  /* Memberikan jarak ke kanan */
+}
+
+.toolbar input[type="text"]:hover {
+  border: 1px solid blue;
+  color: gray;
+}
+
+/* Menambahkan properti untuk memastikan input berada di sebelah kanan */
 .toolbar {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
 }
 
-.toolbar input {
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  width: 200px;
-}
 
+/* Styling untuk div .file-icon */
 .file-icon {
   display: flex;
+  flex-direction: column;
+  /* Menyusun elemen secara vertikal */
+  justify-content: center;
+  /* Menyusun elemen di tengah secara vertikal */
   align-items: center;
-  gap: 10px;
-  font-size: 16px;
+  /* Menyusun elemen di tengah secara horizontal */
+  /* Menggunakan tinggi layar penuh */
+  text-align: center;
+  /* Menyelaraskan teks di dalam p */
+  color: gray;
+  margin-top: 15px;
+}
+
+/* Styling untuk ikon */
+.file-icon i {
+  font-size: 30px;
+  /* Ukuran ikon */
+  margin-bottom: 10px;
+  /* Memberikan jarak antara ikon dan teks */
+}
+
+/* Styling untuk teks */
+.file-icon p {
+  font-size: 10px;
+  /* Ukuran font untuk teks */
+  margin: 0;
+  /* Menghapus margin default dari p */
 }

@@ -65,37 +65,90 @@
     </header>
 
     <main class="main-container">
-      <h1>Dashboard</h1>
+      <h1 class="dashboard-title">Dashboard</h1>
+
       <section class="card">
         <h2>Timeline</h2>
         <div class="toolbar">
-          <button onclick="toggleDropdownMenu('dropdown1')">
-            Dropdown 1 <i class="fa fa-chevron-down"></i>
-          </button>
-          <div id="dropdown1" class="dropdown-menu">
-            <a href="#">Option 1</a>
-            <a href="#">Option 2</a>
-            <a href="#">Close</a>
+          <div class="dropdown">
+            <button class="dropdown-btn">
+              Next 7 days <i class="fa fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menus">
+              <a href="#">All</a>
+              <a href="#">Overdue</a>
+              <hr class="thin-line" />
+              <p class="due-date">Due date</p>
+              <a href="#">Next 7 days</a>
+              <a href="#">Next 30 days</a>
+              <a href="#">Next 3 months</a>
+              <a href="#">Next 6 months</a>
+            </div>
           </div>
-          <input type="text" placeholder="Search activities" />
+
+          <div class="dropdown">
+            <button class="dropdown-btn">
+              Sort by dates <i class="fa fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menus">
+              <a href="#">Sort by dates</a>
+              <a href="#">Sort by course</a>
+            </div>
+          </div>
+
+          <input type="text" placeholder="Search by activity type or name" />
         </div>
+        <hr class="thin-line" />
         <div class="file-icon">
           <i class="fa fa-file"></i>
           <p>No activities require action</p>
         </div>
       </section>
 
-      <!-- Card 2 -->
       <section class="card">
-        <h2>Card 2</h2>
-        <p>This is the content of Card 2.</p>
+        <h2>Recently access course</h2>
+     
       </section>
 
-      <!-- Card 3 -->
       <section class="card">
-        <h2>Card 3</h2>
-        <p>This is the content of Card 3.</p>
+        <h2>Timeline</h2>
+        <div class="toolbar">
+          <div class="dropdown">
+            <button class="dropdown-btn">
+              Next 7 days <i class="fa fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menus">
+              <a href="#">All</a>
+              <a href="#">Overdue</a>
+              <hr class="thin-line" />
+              <p class="due-date">Due date</p>
+              <a href="#">Next 7 days</a>
+              <a href="#">Next 30 days</a>
+              <a href="#">Next 3 months</a>
+              <a href="#">Next 6 months</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <button class="dropdown-btn">
+              Sort by dates <i class="fa fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menus">
+              <a href="#">Sort by dates</a>
+              <a href="#">Sort by course</a>
+            </div>
+          </div>
+
+          <input type="text" placeholder="Search by activity type or name" />
+        </div>
+        <hr class="thin-line" />
+        <div class="file-icon">
+          <i class="fa fa-file"></i>
+          <p>No activities require action</p>
+        </div>
       </section>
+
+      <!-- Repeat other sections (Card 2, Card 3) as needed -->
     </main>
 
     <script>
@@ -109,6 +162,41 @@
         dropdown.style.display =
           dropdown.style.display === "block" ? "none" : "block";
       }
+
+      // Function to toggle visibility of dropdown menu
+      function toggleDropdownMenu(id) {
+        const dropdown = document.getElementById(id);
+        // Hide other dropdowns and toggle the selected one
+        const allDropdowns = document.querySelectorAll(".dropdown-menu-main");
+        allDropdowns.forEach(function (menu) {
+          if (menu.id !== id) {
+            menu.style.display = "none";
+          }
+        });
+
+        // Toggle display for the selected dropdown
+        if (dropdown.style.display === "block") {
+          dropdown.style.display = "none";
+        } else {
+          dropdown.style.display = "block";
+        }
+      }
+
+      document.querySelectorAll(".dropdown-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          const dropdown = button.parentElement;
+
+          // Tutup semua dropdown lain yang aktif
+          document.querySelectorAll(".dropdown").forEach((otherDropdown) => {
+            if (otherDropdown !== dropdown) {
+              otherDropdown.classList.remove("active");
+            }
+          });
+
+          // Toggle dropdown yang diklik
+          dropdown.classList.toggle("active");
+        });
+      });
 
       function closeDropdown() {
         const dropdown = document.getElementById("dropdownMenu");
