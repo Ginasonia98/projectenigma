@@ -491,7 +491,40 @@ hr.thin-line {
   /* 7 columns for each day of the week */
   grid-gap: 5px;
   font-family: Arial, sans-serif;
+  margin-top: 20px;
 }
+
+/* Style for the container */
+.calendar-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Style for the current month and year title */
+#current-month {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the arrow buttons */
+.arrow-button {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 10px;
+  color: #333;
+}
+
+/* Style for the buttons on hover */
+.arrow-button:hover {
+  color: #007bff;
+}
+
 
 #calendar .day-header {
   background-color: #3faffa;
@@ -532,4 +565,63 @@ hr.thin-line {
   background-color: #fff;
   /* Empty space in the grid for days not in the current month */
   border: none;
+}
+
+/* Styling for the select dropdown */
+/* Container to hold the select and button side by side */
+.select-container {
+  display: flex;
+  justify-content: space-between;
+  /* Space between select and button */
+  align-items: center;
+  width: 100%;
+  /* Ensure the container takes up full width */
+  position: relative;
+  /* To allow positioning of the button */
+  margin-top: 10px;
+}
+
+/* Styling for the select dropdown */
+.course-select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  width: 250px;
+  /* Set a fixed width for the select dropdown */
+}
+
+/* Default selected option (All courses) to be gray */
+.course-select option[value="all"]:checked {
+  color: gray;
+}
+
+/* Make "All courses" unselectable */
+.course-select option[value="all"]:disabled {
+  color: gray;
+  font-style: italic;
+}
+
+/* Button styling */
+.new-event-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  /* Blue color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: absolute;
+  /* Position the button at the top-right */
+  right: 0;
+  /* Align to the right */
+}
+
+/* Hover effect for the button */
+.new-event-btn:hover {
+  background-color: #0056b3;
+  /* Darker blue */
 }

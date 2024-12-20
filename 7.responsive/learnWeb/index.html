@@ -160,11 +160,37 @@
 
       <section class="card">
         <h2>Calender</h2>
-        <div id="calendar"></div>
-        <!-- This is where the calendar will be rendered -->
-      </section>
 
-      <!-- Repeat other sections (Card 2, Card 3) as needed -->
+        <!-- Dropdown Menu -->
+        <div class="select-container">
+          <select id="courseSelect" class="course-select">
+            <option value="all" selected disabled>All courses</option>
+            <option value="git">GIT</option>
+            <option value="htmlcss">HTML & CSS</option>
+            <option value="jsdom">Javascript DOM</option>
+            <option value="jsfundamental">Javascript Fundamental</option>
+            <option value="jsoop">Javascript OOP</option>
+            <option value="jssyncasync">Javascript Synchronus and Asynchronus</option>
+          </select>
+          <button class="new-event-btn">New Event</button>
+        </div>
+        
+        </div>
+
+        <!-- Calendar -->
+        <div class="calendar-container">
+          <h3 id="current-month">
+            <button id="prev-month" class="arrow-button">&#10094;</button> <!-- Left arrow -->
+            <span id="month-year"></span> <!-- Display current month and year -->
+            <button id="next-month" class="arrow-button">&#10095;</button> <!-- Right arrow -->
+          </h3>
+          <div id="calendar">
+            <!-- Calendar content goes here -->
+          </div>
+        </div>
+        
+        
+      </section>
     </main>
 
     <script>
@@ -234,55 +260,88 @@
         });
       });
 
-      function createCalendar() {
-        const calendarContainer = document.getElementById("calendar");
-        const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      let selectedMonth = new Date().getMonth(); // Default to current month
+let selectedYear = new Date().getFullYear(); // Default to current year
 
+function createCalendar(month, year) {
+    const calendarContainer = document.getElementById("calendar");
+    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    // Get the first and last day of the selected month
+    const firstDayOfMonth = new Date(year, month, 1); // First day of the month
+    const lastDayOfMonth = new Date(year, month + 1, 0); // Last day of the month
+
+    const totalDaysInMonth = lastDayOfMonth.getDate(); // Total days in month
+    const firstDayOfWeek = firstDayOfMonth.getDay(); // Day of the week the 1st falls on
+
+    // Clear the calendar container before adding new content
+    calendarContainer.innerHTML = "";
+
+    // Add the days of the week header
+    daysOfWeek.forEach((day) => {
+        const dayHeader = document.createElement("div");
+        dayHeader.classList.add("day-header");
+        dayHeader.textContent = day;
+        calendarContainer.appendChild(dayHeader);
+    });
+
+    // Add empty divs for the days before the start of the month
+    for (let i = 0; i < firstDayOfWeek; i++) {
+        const emptyDiv = document.createElement("div");
+        emptyDiv.classList.add("empty");
+        calendarContainer.appendChild(emptyDiv);
+    }
+
+    // Add the days of the month
+    for (let i = 1; i <= totalDaysInMonth; i++) {
+        const dayElement = document.createElement("div");
+        dayElement.classList.add("day");
+        dayElement.textContent = i;
+
+        // Highlight today
         const currentDate = new Date();
-        const currentMonth = currentDate.getMonth(); // Current month (0-11)
-        const currentYear = currentDate.getFullYear(); // Current year
-
-        const firstDayOfMonth = new Date(currentYear, currentMonth, 1); // Get the first day of the month
-        const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0); // Get the last day of the month
-
-        const totalDaysInMonth = lastDayOfMonth.getDate(); // Number of days in current month
-        const firstDayOfWeek = firstDayOfMonth.getDay(); // Day of the week the first day falls on
-
-        // Clear the calendar container
-        calendarContainer.innerHTML = "";
-
-        // Add the days of the week header
-        daysOfWeek.forEach((day) => {
-          const dayHeader = document.createElement("div");
-          dayHeader.classList.add("day-header");
-          dayHeader.textContent = day;
-          calendarContainer.appendChild(dayHeader);
-        });
-
-        // Add empty divs for the days before the start of the month
-        for (let i = 0; i < firstDayOfWeek; i++) {
-          const emptyDiv = document.createElement("div");
-          emptyDiv.classList.add("empty");
-          calendarContainer.appendChild(emptyDiv);
-        }
-
-        // Add the days of the month
-        for (let i = 1; i <= totalDaysInMonth; i++) {
-          const dayElement = document.createElement("div");
-          dayElement.classList.add("day");
-          dayElement.textContent = i;
-
-          // Highlight today
-          if (i === currentDate.getDate()) {
+        if (i === currentDate.getDate() && month === currentDate.getMonth() && year === currentDate.getFullYear()) {
             dayElement.classList.add("current-day");
-          }
-
-          calendarContainer.appendChild(dayElement);
         }
-      }
 
-      // Run the createCalendar function on page load
-      createCalendar();
+        calendarContainer.appendChild(dayElement);
+    }
+
+    // Update the month and year display
+    document.getElementById('month-year').textContent = `${getMonthName(month)} ${year}`;
+}
+
+// Update the calendar when the month or year changes
+function updateCalendar(monthOffset) {
+    selectedMonth += monthOffset;
+
+    if (selectedMonth < 0) {
+        selectedMonth = 11; // December
+        selectedYear--;
+    } else if (selectedMonth > 11) {
+        selectedMonth = 0; // January
+        selectedYear++;
+    }
+
+    createCalendar(selectedMonth, selectedYear);
+}
+
+// Function to get the month name
+function getMonthName(monthIndex) {
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    return monthNames[monthIndex];
+}
+
+// Initialize the calendar with the current month and year
+window.onload = () => createCalendar(selectedMonth, selectedYear);
+
+// Event listeners for previous and next month buttons
+document.getElementById('prev-month').addEventListener('click', () => updateCalendar(-1));
+document.getElementById('next-month').addEventListener('click', () => updateCalendar(1));
+
     </script>
   </body>
 </html>
