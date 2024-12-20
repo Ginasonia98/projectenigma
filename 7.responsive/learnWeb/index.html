@@ -3,34 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="styles.css" />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
   </head>
   <body>
     <header class="header-nav">
-      <div>
+      <div class="nav-left">
         <img
           src="https://lms.enigmacamp.com/pluginfile.php/1/core_admin/logocompact/300x300/1733286021/enigma-compact.png"
           alt="enigma icon"
           class="image-enigma"
         />
-        <a href="https://lms.enigmacamp.com/?redirect=0">Home</a>
-        <a href="https://lms.enigmacamp.com/my/">Dashboard</a>
-        <a href="https://lms.enigmacamp.com/my/courses.php">My Courses</a>
+        <nav>
+          <a href="https://lms.enigmacamp.com/?redirect=0" class="nav-link"
+            >Home</a
+          >
+          <a href="https://lms.enigmacamp.com/my/" class="nav-link"
+            >Dashboard</a
+          >
+          <a href="https://lms.enigmacamp.com/my/courses.php" class="nav-link"
+            >My Courses</a
+          >
+        </nav>
       </div>
-      <div class="icon-container">
+      <div class="nav-right">
         <i class="fa fa-bell"></i>
         <i class="fa fa-comment-alt"></i>
         <div class="dropdown-container">
           <i class="fa fa-user-circle" onclick="toggleDropdown()"></i>
+          <i class="fa fa-chevron-down" onclick="toggleDropdown()"></i>
+          <!-- Chevron down icon -->
           <div class="dropdown-menu" id="dropdownMenu">
-            <div class="dropdown-header">
-              <i class="fa fa-times close-icon" onclick="closeDropdown()"></i>
-            </div>
+            <span class="close-btn" onclick="closeDropdown()">×</span>
+            <!-- Close button -->
             <a href="https://lms.enigmacamp.com/user/profile.php">Profile</a>
             <a href="https://lms.enigmacamp.com/grade/report/overview/index.php"
               >Grades</a
@@ -48,72 +57,46 @@
           </div>
         </div>
 
-        <p class="edit-teks">Edit Mode</p>
+        <p>Edit Mode</p>
         <div class="switch" onclick="toggleSwitch(this)">
           <div class="switch-circle"></div>
         </div>
       </div>
     </header>
 
-    <hr />
-
-    <div class="card-container">
-      <h2 class="dashboard-title">Dashboard</h2>
-      <div class="card">
-        <h3>Timeline</h3>
-        <div class="button-container">
-          <div class="right-buttons">
-            <button
-              class="dropdown-btn"
-              onclick="toggleDropdownMenu('dropdown1')"
-            >
-              Dropdown 1 <i class="fa fa-chevron-down"></i>
-            </button>
-            <div id="dropdown1" class="dropdown-menu">
-              <a href="#">Submenu 1</a>
-              <a href="#">Submenu 2</a>
-              <a href="#">Submenu 3</a>
-              <a href="#">Submenu 4</a>
-              <a href="#">Submenu 5</a>
-              <a href="#" onclick="closeDropdownMenu('dropdown1')">Close</a>
-            </div>
-
-            <button
-              class="dropdown-btn"
-              onclick="toggleDropdownMenu('dropdown2')"
-            >
-              Dropdown 2 <i class="fa fa-chevron-down"></i>
-            </button>
-            <div id="dropdown2" class="dropdown-menu">
-              <a href="#">Submenu 1</a>
-              <a href="#">Submenu 2</a>
-              <a href="#" onclick="closeDropdownMenu('dropdown2')">Close</a>
-            </div>
+    <main class="main-container">
+      <h1>Dashboard</h1>
+      <section class="card">
+        <h2>Timeline</h2>
+        <div class="toolbar">
+          <button onclick="toggleDropdownMenu('dropdown1')">
+            Dropdown 1 <i class="fa fa-chevron-down"></i>
+          </button>
+          <div id="dropdown1" class="dropdown-menu">
+            <a href="#">Option 1</a>
+            <a href="#">Option 2</a>
+            <a href="#">Close</a>
           </div>
-
-          <div class="right-input">
-            <input type="text" placeholder="Search by activity type or name" />
-          </div>
+          <input type="text" placeholder="Search activities" />
         </div>
-
-        <hr />
-
         <div class="file-icon">
           <i class="fa fa-file"></i>
           <p>No activities require action</p>
         </div>
-      </div>
+      </section>
 
-      <div class="card">
-        <h3>Card 2</h3>
+      <!-- Card 2 -->
+      <section class="card">
+        <h2>Card 2</h2>
         <p>This is the content of Card 2.</p>
-      </div>
+      </section>
 
-      <div class="card">
-        <h3>Card 3</h3>
+      <!-- Card 3 -->
+      <section class="card">
+        <h2>Card 3</h2>
         <p>This is the content of Card 3.</p>
-      </div>
-    </div>
+      </section>
+    </main>
 
     <script>
       function toggleSwitch(element) {
@@ -122,32 +105,30 @@
 
       function toggleDropdown() {
         const dropdown = document.getElementById("dropdownMenu");
+        // Toggle display between none and block
         dropdown.style.display =
-          dropdown.style.display === "flex" ? "none" : "flex";
+          dropdown.style.display === "block" ? "none" : "block";
       }
 
       function closeDropdown() {
         const dropdown = document.getElementById("dropdownMenu");
-        dropdown.style.display = "none";
+        dropdown.style.display = "none"; // Close the dropdown
       }
 
-      function toggleDropdownMenu(dropdownId) {
-        const dropdown = document.getElementById(dropdownId);
-        const isVisible = dropdown.classList.contains("show");
+      document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll(".nav-link");
 
-        document
-          .querySelectorAll(".dropdown-menu")
-          .forEach((menu) => menu.classList.remove("show"));
+        links.forEach((link) => {
+          if (link.href === window.location.href) {
+            link.classList.add("active");
+          }
 
-        if (!isVisible) {
-          dropdown.classList.add("show");
-        }
-      }
-
-      function closeDropdownMenu(dropdownId) {
-        const dropdown = document.getElementById(dropdownId);
-        dropdown.classList.remove("show");
-      }
+          link.addEventListener("click", () => {
+            links.forEach((item) => item.classList.remove("active"));
+            link.classList.add("active");
+          });
+        });
+      });
     </script>
   </body>
 </html>
